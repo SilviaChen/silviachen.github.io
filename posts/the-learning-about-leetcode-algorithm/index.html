@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>The Journey of Learning LeetCode - </title><meta name="Description" content="This is my cool site"><meta property="og:title" content="The Journey of Learning LeetCode" />
+<meta property="og:description" content="我的LeetCode学习之路 先放一张图片：
+嘿嘿嘿，这几乎算是人生LeetCode高光了~主要我之前可是连一道简单题都写不出来的人啊！
+我大约是2021年的3月份开始，先把LeetCode当时的所有简单题都刷了一遍，主要是为了熟悉python语法和简单的算法知识。然后&hellip;然后就颓废了小半年 &gt;_&lt; 。直到2021年的9月份，开始系统性的学习算法知识。在这里要特别感谢@labuladong。我就是跟着他的讲解一篇一篇读、一道题一道题开始学习。
+先从链表、二叉树开始，在学习链表的同时学习了双指针；在学习二叉树递归的同时，也会接触到回溯（DFS）；学习到二叉树的迭代，也顺带学习了BFS。在学习BFS的时候接触到了图，然后就学习了Dijkstra、二分图、并查集。
+接下来就是动态规划，我觉得如果能彻底掌握动态规划的base case和递归的方法，那其实并不算很难很难（主要是我之前自己实在是太菜了，一丁点的思路都没有，现在好歹有点思路）。动态规划的子序列、子串问题我觉得好难啊！
+经典的还有单调栈（每次看到单调栈的题解都要一拍大腿：感慨人家好聪明的想法！）。还有堆，用于找top N的题。数组用的比较多的还有前缀和、差分数组、二分、位运算（直到现在我都记不住，感觉还是没有彻底了解位运算啊！）。二分算法的变种真的需要提醒，这种我肯定没法上来就想到的，除非看到提示“binary search”或者O(log n)能稍微往这边想一下。
+还有经典的排序算法：快速排序、计数排序、桶排序（其实现在都已经不记得了 QAQ）
+这些都是在2021年的9月份到2022年的4月份中间，陆陆续续学习的。这其中用了国区的账号去参加比赛（刷题大部分用的是美区账号，我发现国区的花样好多啊！打比赛还能收到小礼物！我就收到过力扣的扑克牌嘿嘿嘿！）这么想想还是学习了很多东西的啊！为自己骄傲一把 ʅ（´◔౪◔）ʃ。但是后面因为找到了工作就松懈了一年，幸好一年以后再看有一部分都还可以回忆起来，说明是这些真的理解并掌握了的！那些不太记得还需要再次看的就是掌握没有那么好，那就再学习就好。
+希望自己能够时刻有着忧患意识，这个时代发展太快，我随时可能都会被抛弃，希望自己能够永远保持心怀感激、永远能够热泪盈眶吧！" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/the-learning-about-leetcode-algorithm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-16T18:30:12+08:00" />
+<meta property="article:modified_time" content="2023-09-16T18:30:12+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="The Journey of Learning LeetCode"/>
+<meta name="twitter:description" content="我的LeetCode学习之路 先放一张图片：
+嘿嘿嘿，这几乎算是人生LeetCode高光了~主要我之前可是连一道简单题都写不出来的人啊！
+我大约是2021年的3月份开始，先把LeetCode当时的所有简单题都刷了一遍，主要是为了熟悉python语法和简单的算法知识。然后&hellip;然后就颓废了小半年 &gt;_&lt; 。直到2021年的9月份，开始系统性的学习算法知识。在这里要特别感谢@labuladong。我就是跟着他的讲解一篇一篇读、一道题一道题开始学习。
+先从链表、二叉树开始，在学习链表的同时学习了双指针；在学习二叉树递归的同时，也会接触到回溯（DFS）；学习到二叉树的迭代，也顺带学习了BFS。在学习BFS的时候接触到了图，然后就学习了Dijkstra、二分图、并查集。
+接下来就是动态规划，我觉得如果能彻底掌握动态规划的base case和递归的方法，那其实并不算很难很难（主要是我之前自己实在是太菜了，一丁点的思路都没有，现在好歹有点思路）。动态规划的子序列、子串问题我觉得好难啊！
+经典的还有单调栈（每次看到单调栈的题解都要一拍大腿：感慨人家好聪明的想法！）。还有堆，用于找top N的题。数组用的比较多的还有前缀和、差分数组、二分、位运算（直到现在我都记不住，感觉还是没有彻底了解位运算啊！）。二分算法的变种真的需要提醒，这种我肯定没法上来就想到的，除非看到提示“binary search”或者O(log n)能稍微往这边想一下。
+还有经典的排序算法：快速排序、计数排序、桶排序（其实现在都已经不记得了 QAQ）
+这些都是在2021年的9月份到2022年的4月份中间，陆陆续续学习的。这其中用了国区的账号去参加比赛（刷题大部分用的是美区账号，我发现国区的花样好多啊！打比赛还能收到小礼物！我就收到过力扣的扑克牌嘿嘿嘿！）这么想想还是学习了很多东西的啊！为自己骄傲一把 ʅ（´◔౪◔）ʃ。但是后面因为找到了工作就松懈了一年，幸好一年以后再看有一部分都还可以回忆起来，说明是这些真的理解并掌握了的！那些不太记得还需要再次看的就是掌握没有那么好，那就再学习就好。
+希望自己能够时刻有着忧患意识，这个时代发展太快，我随时可能都会被抛弃，希望自己能够永远保持心怀感激、永远能够热泪盈眶吧！"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/the-learning-about-leetcode-algorithm/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "The Journey of Learning LeetCode",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/the-learning-about-leetcode-algorithm\/"
+        },"genre": "posts","wordcount":  18 ,
+        "url": "\/posts\/the-learning-about-leetcode-algorithm\/","datePublished": "2023-09-16T18:30:12+08:00","dateModified": "2023-09-16T18:30:12+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title=""><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg"
+        data-srcset="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg, https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg 1.5x, https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg"
+        title="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg" />Silvia&#39;s Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title=""><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg"
+        data-srcset="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg, https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg 1.5x, https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg"
+        title="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309162234009.jpg" />Silvia&#39;s Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">The Journey of Learning LeetCode</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span>&nbsp;<span class="post-category">included in <a href="/categories/leetcode/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Documentation</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-09-16">2023-09-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;18 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><h1 id="我的leetcode学习之路">我的LeetCode学习之路</h1>
+<p>先放一张图片：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309170949782.png"
+        data-srcset="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309170949782.png, https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309170949782.png 1.5x, https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309170949782.png 2x"
+        data-sizes="auto"
+        alt="https://raw.githubusercontent.com/SilviaChen/blog-image/main/img/202309170949782.png"
+        title="image-202309170949782" /></p>
+<p>嘿嘿嘿，这几乎算是人生LeetCode高光了~主要我之前可是连一道简单题都写不出来的人啊！</p>
+<p>我大约是2021年的3月份开始，先把LeetCode当时的所有简单题都刷了一遍，主要是为了熟悉python语法和简单的算法知识。然后&hellip;然后就颓废了小半年 &gt;_&lt; 。直到2021年的9月份，开始系统性的学习算法知识。在这里要特别感谢@<a href="https://labuladong.gitee.io/algo/" target="_blank" rel="noopener noreffer ">labuladong</a>。我就是跟着他的讲解一篇一篇读、一道题一道题开始学习。</p>
+<p>先从链表、二叉树开始，在学习链表的同时学习了双指针；在学习二叉树递归的同时，也会接触到回溯（DFS）；学习到二叉树的迭代，也顺带学习了BFS。在学习BFS的时候接触到了图，然后就学习了Dijkstra、二分图、并查集。</p>
+<p>接下来就是动态规划，我觉得如果能彻底掌握动态规划的base case和递归的方法，那其实并不算很难很难（主要是我之前自己实在是太菜了，一丁点的思路都没有，现在好歹有点思路）。动态规划的子序列、子串问题我觉得好难啊！</p>
+<p>经典的还有单调栈（每次看到单调栈的题解都要一拍大腿：感慨人家好聪明的想法！）。还有堆，用于找top N的题。数组用的比较多的还有前缀和、差分数组、二分、位运算（直到现在我都记不住，感觉还是没有彻底了解位运算啊！）。二分算法的变种真的需要提醒，这种我肯定没法上来就想到的，除非看到提示“binary search”或者O(log n)能稍微往这边想一下。</p>
+<p>还有经典的排序算法：快速排序、计数排序、桶排序（其实现在都已经不记得了 QAQ）</p>
+<p>这些都是在2021年的9月份到2022年的4月份中间，陆陆续续学习的。这其中用了国区的账号去参加比赛（刷题大部分用的是美区账号，我发现国区的花样好多啊！打比赛还能收到小礼物！我就收到过力扣的扑克牌嘿嘿嘿！）这么想想还是学习了很多东西的啊！为自己骄傲一把 ʅ（´◔౪◔）ʃ。但是后面因为找到了工作就松懈了一年，幸好一年以后再看有一部分都还可以回忆起来，说明是这些真的理解并掌握了的！那些不太记得还需要再次看的就是掌握没有那么好，那就再学习就好。</p>
+<p>希望自己能够时刻有着忧患意识，这个时代发展太快，我随时可能都会被抛弃，希望自己能够永远保持心怀感激、永远能够热泪盈眶吧！</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-09-16</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/the-learning-about-leetcode-algorithm/" data-title="The Journey of Learning LeetCode"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="/posts/the-learning-about-leetcode-algorithm/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="/posts/the-learning-about-leetcode-algorithm/" data-title="The Journey of Learning LeetCode"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="/posts/the-learning-about-leetcode-algorithm/" data-title="The Journey of Learning LeetCode"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="/posts/the-learning-about-leetcode-algorithm/" data-title="The Journey of Learning LeetCode"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.118.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
